@@ -168,4 +168,16 @@ class Context
     {
         return $this->properties[$key];
     }
+
+    public function getJson()
+    {
+        $data = array(
+            'userId' => $this->getUserId(),
+            'sessionId' => $this->getSessionId(),
+            'remoteAddress' => $this->getRemoteAddress(),
+            'properties' => $this->getProperties(),
+            'appName' => $this->getHostName()
+        );
+        return json_encode($data);
+    }
 }
