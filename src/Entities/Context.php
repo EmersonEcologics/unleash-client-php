@@ -169,7 +169,7 @@ class Context
         return $this->properties[$key];
     }
 
-    public function getJson()
+    public function getJson($encode=false)
     {
         $data = array(
             'userId' => $this->getUserId(),
@@ -178,6 +178,9 @@ class Context
             'properties' => $this->getProperties(),
             'appName' => $this->getHostName()
         );
-        return json_encode($data);
+        if ($encode) {
+            $data = json_encode($data);
+        }
+        return $data;
     }
 }
