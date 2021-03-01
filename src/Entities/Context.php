@@ -24,6 +24,9 @@ class Context
     /** @var string */
     protected $hostName;
 
+    /** @var array */
+    protected $properties;
+
     /**
      * Gets the context user ID
      * @return string|null
@@ -122,5 +125,64 @@ class Context
     {
         $this->hostName = $hostName;
         return $this;
+    }
+
+    /**
+     * Gets all properties
+     * @return array
+     */
+    public function getProperties(): ?array
+    {
+        return $this->properties;
+    }
+
+    /**
+     * Set a single property
+     * @param string $key
+     * @param string $value
+     * @return Context
+     */
+    public function setProperty(string $key, string $value): Context
+    {
+        $this->properties[$key] = $value;
+        return $this;
+    }
+
+    /**
+     * Remove a single property
+     * @param string $key
+     * @return Context
+     */
+    public function removeProperty(string $key): Context
+    {
+        if (array_key_exists($key, $this->properties)) {
+            unset($this->properties[$key]);
+        }        
+        return $this;
+    }
+
+    /**
+     * Get a single property
+     * @param string $key
+     * @return string
+     */
+    public function getProperty(string $key): ?string
+    {
+        return $this->properties[$key];
+    }
+
+    public function getJson($encode=false)
+    {
+        $data = array(
+            'userId' => $this->getUserId(),
+            'sessionId' => $this->getSessionId(),
+            'remoteAddress' => $this->getRemoteAddress(),
+            'properties' => $this->getProperties(),
+            'appName' => $this->getHostName()
+        );
+        if ($encode) {
+            $data = json_encode($data);
+        }
+        return $data;
     }
 }
