@@ -155,7 +155,9 @@ class Context
      */
     public function removeProperty(string $key): Context
     {
-        unset($this->properties[$key]);
+        if (array_key_exists($key, $this->properties)) {
+            unset($this->properties[$key]);
+        }        
         return $this;
     }
 
