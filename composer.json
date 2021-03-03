@@ -1,5 +1,5 @@
 {
-  "name": "minds/unleash-client-php",
+  "name": "emersonecologics/unleash-client-php",
   "type": "library",
   "description": "PHP client for Unleash",
   "keywords": [
@@ -7,7 +7,7 @@
     "client",
     "minds"
   ],
-  "homepage": "https://gitlab.com/minds/unleash-client-php",
+  "homepage": "https://github.com/emersonecologics/unleash-client-php",
   "license": "MIT",
   "authors": [
     {
@@ -20,6 +20,12 @@
       "name": "Emiliano Balbuena",
       "email": "emiliano@minds.com",
       "homepage": "http://www.minds.com/edgebal",
+      "role": "Developer"
+    },
+    {
+      "name": "Stephen Cotton",
+      "email": "scotton@emersonecologics.com",
+      "homepage": "http://www.emersonecologics.com",
       "role": "Developer"
     }
   ],
