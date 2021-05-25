@@ -54,7 +54,7 @@ class FeatureFactory
 
         $feature
             ->setName($data['name'])
-            ->setDescription($data['description'])
+            ->setDescription(array_key_exists('description',$data) ? $data['description'] : '')
             ->setEnabled($data['enabled'])
             ->setStrategies($strategies);
 
